@@ -1,0 +1,64 @@
+.list {
+  display: flex;
+  gap: 30px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  .listWrapper {
+    display: flex; // Новый стиль
+    flex: 1; // Распределение ширины
+    align-items: stretch; // Растягиваем дочерние элементы по высоте
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 56px 71px;
+      flex-grow: 1; // Растягиваем до одинаковой высоты
+
+      @media screen and (max-width: 768px) {
+        padding: 31px 17px;
+        gap: 24px;
+      }
+    }
+
+    .practical {
+      position: relative;
+      background-color: var(--red);
+    }
+
+    .practical::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      border-top: 43px solid var(--white);
+      border-left: 43px solid var(--dark-red);
+      border-bottom: 0 solid transparent;
+      border-right: 0 solid transparent;
+    }
+
+    .final {
+      background-color: var(--black);
+
+      .finalList li {
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .finalList li::before {
+        content: '';
+        position: absolute;
+        top: 4;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        background-color: var(--red);
+        border-radius: 50%;
+      }
+    }
+  }
+}
